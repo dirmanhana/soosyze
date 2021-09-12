@@ -77,6 +77,15 @@ class Block
                 'title_link' => t('Edit')
             ], [
                 'class'      => 'mod',
+                'icon'       => 'fa fa-paint-brush',
+                'key'        => 'block.style.edit',
+                'link'       => $this->router->getRoute('block.style.edit', [
+                    ':theme'   => $theme,
+                    ':id'      => $id
+                ]),
+                'title_link' => t('Style')
+            ], [
+                'class'      => 'mod',
                 'icon'       => 'fa fa-times',
                 'key'        => 'block.remove',
                 'link'       => $this->router->getRoute('block.remove', [

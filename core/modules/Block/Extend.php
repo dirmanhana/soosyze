@@ -16,7 +16,7 @@ class Extend extends \SoosyzeCore\System\ExtendModule
 
     public function boot(): void
     {
-        foreach ([ 'block', 'form', 'main', 'permission' ] as $file) {
+        foreach ([ 'block', 'form', 'main', 'permission', 'style' ] as $file) {
             $this->loadTranslation('fr', __DIR__ . "/Lang/fr/$file.json");
         }
     }

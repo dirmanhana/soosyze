@@ -29,4 +29,8 @@ R::useNamespace('SoosyzeCore\Block\Controller')->name('block.')->prefix('block')
     R::put('update', '/:theme/:id', 'Block@update', BLOCK_WITH_ID);
     R::get('remove', '/:theme/:id/delete', 'Block@remove', BLOCK_WITH_ID);
     R::delete('delete', '/:theme/:id', 'Block@delete', BLOCK_WITH_ID);
+
+    R::get('style.edit', '/:theme/:id/style', 'Style@edit', BLOCK_WITH_ID);
+    R::put('style.update', '/:theme/:id/style', 'Style@update', BLOCK_WITH_ID);
+    R::get('tool.style', '/admin/tool/style', 'Style@style');
 });

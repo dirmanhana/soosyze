@@ -57,8 +57,14 @@ class App
      */
     private $userCurrent;
 
-    public function __construct(Core $core, Block $block, Query $query, Router $router, Templating $template, User $user)
-    {
+    public function __construct(
+        Core $core,
+        Block $block,
+        Query $query,
+        Router $router,
+        Templating $template,
+        User $user
+    ) {
         $this->core   = $core;
         $this->block  = $block;
         $this->query  = $query;
@@ -102,6 +108,10 @@ class App
                     : null
             ]);
         }
+
+        $vendor = $this->core->getPath('assets_public', 'public/vendor', false);
+        $themeName = $isAdmin ? $this->tpl->getThemeAdminName() : $this->tpl->getThemePublicName();
+        $response->addStyle('template.theme', "$vendor/$themeName.css");
     }
 
     private function isAdmin(): bool
@@ -157,10 +167,11 @@ class App
                     ':id'    => $block[ 'block_id' ]
                 ];
 
-                $block[ 'link_edit' ]   = $this->router->getRoute('block.edit', $params);
-                $block[ 'link_remove' ] = $this->router->getRoute('block.remove', $params);
-                $block[ 'link_update' ] = $this->router->getRoute('block.section.update', $params);
-                $block[ 'title_admin' ] = $listBlock[ $block[ 'key_block' ] ][ 'title' ] ?? '';
+                $block[ 'link_edit' ]       = $this->router->getRoute('block.edit', $params);
+                $block[ 'link_edit_style' ] = $this->router->getRoute('block.style.edit', $params);
+                $block[ 'link_remove' ]     = $this->router->getRoute('block.remove', $params);
+                $block[ 'link_update' ]     = $this->router->getRoute('block.section.update', $params);
+                $block[ 'title_admin' ]     = $listBlock[ $block[ 'key_block' ] ][ 'title' ] ?? '';
             }
             $out[ $block[ 'section' ] ][] = $block;
         }

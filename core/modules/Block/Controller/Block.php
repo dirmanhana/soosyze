@@ -48,7 +48,6 @@ class Block extends \Soosyze\Controller
                 ->getTheme('theme_admin')
                 ->createBlock('block/modal-form-create_list.php', $this->pathViews)
                 ->addVars([
-                    'class' => 'form-create_list',
                     'form'  => $form,
                     'title' => t('Add a block')
         ]);
@@ -149,7 +148,6 @@ class Block extends \Soosyze\Controller
                 ->getTheme('theme_admin')
                 ->createBlock('block/modal-form.php', $this->pathViews)
                 ->addVars([
-                    'class'            => 'form-create',
                     'fieldset_submenu' => self::block()->getBlockFieldsetSubmenu(),
                     'form'             => $form,
                     'section'          => $values[ 'section' ],
@@ -283,7 +281,6 @@ class Block extends \Soosyze\Controller
                 ->getTheme('theme_admin')
                 ->createBlock('block/modal-form.php', $this->pathViews)
                 ->addVars([
-                    'class'            => 'form-edit',
                     'fieldset_submenu' => self::block()->getBlockFieldsetSubmenu(),
                     'form'             => $form,
                     'menu'             => self::block()->getBlockSubmenu('block.edit', $theme, $id),

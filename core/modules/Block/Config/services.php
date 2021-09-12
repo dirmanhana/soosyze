@@ -52,14 +52,23 @@ return [
             'route.block.store' => 'hookBlockCreated',
             'route.block.edit' => 'hookBlockEdited',
             'route.block.update' => 'hookBlockEdited',
+            'route.block.style.edit' => 'hookBlockEdited',
+            'route.block.style.update' => 'hookBlockEdited',
             'route.block.remove' => 'hookBlockDeleted',
-            'route.block.delete' => 'hookBlockDeleted'
+            'route.block.delete' => 'hookBlockDeleted',
+            'route.block.tool.style' => 'hookBlockEdited'
         ]
     ],
     'block.extend' => [
         'class' => 'SoosyzeCore\Block\Extend',
         'hooks' => [
             'install.user' => 'hookInstallUser'
+        ]
+    ],
+    'block.hook.tool' => [
+        'class' => 'SoosyzeCore\Block\Hook\Tool',
+        'hooks' => [
+            'tools.action' => 'hookToolAction'
         ]
     ]
 ];

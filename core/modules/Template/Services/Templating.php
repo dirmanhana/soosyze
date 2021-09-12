@@ -202,6 +202,23 @@ class Templating extends \Soosyze\Components\Http\Response
         return $this;
     }
 
+    public function getThemeCurrentName(): ?string
+    {
+        return $this->defaultThemeName
+            ? $this->config->get('settings.' . $this->defaultThemeName, null)
+            : null;
+    }
+
+    public function getThemePublicName(): ?string
+    {
+        return $this->config->get('settings.' . self::THEME_PUBLIC, null);
+    }
+
+    public function getThemeAdminName(): ?string
+    {
+        return $this->config->get('settings.' . self::THEME_ADMIN, null);
+    }
+
     public function isTheme(string $themeName): bool
     {
         return $this->defaultThemeName === $themeName;
